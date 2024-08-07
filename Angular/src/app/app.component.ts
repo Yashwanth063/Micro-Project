@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Employee } from './model/Employee';
-import { EmployeeService } from './employee.service';
+import { Importss } from './model/imports';
+import { ImportsService } from './imports.service';
 
 @Component({
   selector: 'app-root',
@@ -8,48 +8,50 @@ import { EmployeeService } from './employee.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Ems';
-  employee : Employee;
+  title = 'Imp';
+  imports : Importss;
   result : string;
-  employeeArr : Employee[];
+  importsArr : Importss[];
   flag : boolean;
   
 
-  constructor(private service : EmployeeService){
-    this.employee = new Employee();
+  constructor(private service : ImportsService){
+    this.imports = new Importss();
     this.result =" ";
-    this.employeeArr = [];
+    this.importsArr = [];
     this.flag = false;
   }
 
-  insertEmployee(data : any) {
-    this.employee.id = data.empId;
-    this.employee.empName = data.empName;
-    this.employee.empSalary = data.empSalary;
-    alert(data.empId+" "+data.empName+" "+data.empSalary);
-    this.result = this.service.insertEmployee(this.employee);
+  insertImports(data : any) {
+    this.imports.id = data.contno;
+    this.imports.prodname = data.prodname;
+    this.imports.quantity = data.quantity;
+    this.imports.price = data.price;
+    alert(data.contno+" "+data.prodname+" "+data.quantity +" " + data.price);
+    this.result = this.service.insertImports(this.imports);
   }
 
-  updateEmployee(data : any){
-    this.employee.id = data.empId;
-    this.employee.empName = data.empName;
-    this.employee.empSalary = data.empSalary;
-    alert(data.empId+" "+data.empName+" "+data.empSalary);
-    this.result = this.service.updateEmployee(this.employee);
+  updateImports(data : any){
+    this.imports.id = data.contno;
+    this.imports.prodname = data.prodname; 
+    this.imports.quantity = data.quantity;
+    this.imports.price = data.price;
+    alert(data.contno+" "+data.prodname+" "+data.quantity + " " + data.price);
+    this.result = this.service.updateImports(this.imports);
 
   }
 
-  deleteEmployee(data : any){
-    this.result = this.service.deleteEmployee(data.empId);
+  deleteImports(data : any){
+    this.result = this.service.deleteImports(data.contno);
   }
 
-  findEmployee(data : any){
-    this.employee =this.service.findEmployee(data.empId);
-    this.result = this.employee.id + " " + this.employee.empName + " " + this.employee.empSalary;
+  findImports(data : any){
+    this.imports =this.service.findImports(data.contno);
+    this.result = this.imports.id + " " + this.imports.prodname + " " + this.imports.quantity + this.imports.price;
   }
 
-  findAllEmployee(){
-   this.employeeArr = this.service.findAllEmployee();
+  findAllImports(){
+   this.importsArr = this.service.findAllImports();
    this.flag = true;
   }
 }

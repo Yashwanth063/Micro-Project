@@ -3,7 +3,27 @@ label{
     color: #900C3F;
 }
 
-h1{
+h2{
     text-align: center;
     color: #900C3F;
+    border: 2px solid grey;
+    box-shadow: 20px 10px 5px gray;
+    margin-top: 20px;
+    width: 700px;
+    padding: 10px;
+    margin-left: 300px;
+    background-color:lightcoral;
+}
+
+.over{
+    border: 3px solid gray;
+    width: 700px;
+    height: 500px;
+    margin-left:300px;
+    box-shadow: 20px 10px 5px gray;
+background-color:lightcoral;
+}
+
+.container{
+    padding:30px;
 }

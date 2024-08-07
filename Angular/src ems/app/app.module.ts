@@ -4,7 +4,7 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { ImportsService } from './imports.service';
+import { EmployeeService } from './employee.service';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 
@@ -22,7 +22,7 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
     
   ],
   providers: [
-    ImportsService,
+    EmployeeService,
     provideHttpClient(withFetch())
 
   ],
